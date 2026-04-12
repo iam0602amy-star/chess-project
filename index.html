@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+
+    <!-- VR Controls -->
+    <script src="https://gftruj.github.io/webzamples/aframe/controls/oculus-thumbstick-controls.js"></script>
+  </head>
+
+  <body>
+    <a-scene>
+
+      <!-- Sky -->
+      <a-sky color="#ECECEC"></a-sky>
+
+      <!-- Environment -->
+      <a-entity environment="preset: forest"></a-entity>
+
+      <!-- Ground -->
+      <a-plane rotation="-90 0 0" width="30" height="30" color="#7BC8A4"></a-plane>
+
+      <!-- Lighting -->
+      <a-light type="ambient" intensity="0.5"></a-light>
+      <a-light type="directional" position="3 5 2" intensity="1"></a-light>
+      <a-light type="point" position="0 3 -8" intensity="0.6"></a-light>
+
+      <!-- MODEL -->
+      <a-entity 
+        gltf-model="https://cdn.jsdelivr.net/gh/iam0602amy-star/chess-project@main/carrot-queen.glb"
+        position="0 2 -8" 
+        scale="1.5 1.5 1.5"
+        rotation="0 30 0">
+      </a-entity>
+
+      <!-- PEDESTAL -->
+      <a-cylinder 
+        position="0 0.5 -8" 
+        radius="1.5" 
+        height="1" 
+        color="#AAA">
+      </a-cylinder>
+
+      <!-- Label -->
+      <a-text 
+        value="Carrot Queen" 
+        position="0 3.2 -8" 
+        align="center"
+        color="#000">
+      </a-text>
+
+      <!-- Extra primitives -->
+      <a-box position="4 1 -10"></a-box>
+      <a-sphere position="-4 1 -10"></a-sphere>
+      <a-cylinder position="3 1 -12"></a-cylinder>
+      <a-cone position="-3 1 -12"></a-cone>
+      <a-torus position="0 3 -10"></a-torus>
+
+      <!-- VR CAMERA RIG -->
+      <a-entity id="rig" position="0 1.6 5">
+        <a-camera>
+          <a-entity oculus-touch-controls="hand: left"></a-entity>
+          <a-entity oculus-touch-controls="hand: right" oculus-thumbstick-controls></a-entity>
+        </a-camera>
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>
